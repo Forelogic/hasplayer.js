@@ -135,7 +135,7 @@ MediaPlayer.dependencies.protection.KeySystem_PlayReady = function() {
                     record = String.fromCharCode.apply(null, new Uint16Array(recordData));
                     xmlDoc = this.domParser.createXmlTree(record);
 
-                    if (protData?.overrideUrl) {
+                    if (protData && protData.overrideUrl) {
                         return protData.overrideUrl;
                     }
 
