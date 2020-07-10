@@ -135,6 +135,10 @@ MediaPlayer.dependencies.protection.KeySystem_PlayReady = function() {
                     record = String.fromCharCode.apply(null, new Uint16Array(recordData));
                     xmlDoc = this.domParser.createXmlTree(record);
 
+                    if (protData && protData.overrideUrl) {
+                        return protData.overrideUrl;
+                    }
+
                     // First try <LA_URL>
                     if (xmlDoc.getElementsByTagName("LA_URL")[0]) {
                         laurl = xmlDoc.getElementsByTagName("LA_URL")[0].childNodes[0].nodeValue;
